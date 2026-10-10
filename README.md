@@ -28,7 +28,7 @@ label printers of the same family, such as the D30) over Bluetooth LE.
 ### HACS (custom repository)
 
 1. HACS → three dots → **Custom repositories**.
-2. Add `https://github.com/YOUR_GITHUB_USERNAME/ha-phomemo-q30` with category **Integration**.
+2. Add `https://github.com/flyingmaulwurf/ha-phomemo-q30` with category **Integration**.
 3. Download **Phomemo Q30 label printer** and restart Home Assistant.
 
 ### Manual
