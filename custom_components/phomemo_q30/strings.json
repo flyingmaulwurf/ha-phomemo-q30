@@ -1,0 +1,150 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Phomemo Q30",
+        "description": "Pick the printer from the list, or type its Bluetooth address (e.g. AA:BB:CC:DD:EE:FF). Switch the printer on and keep it near Home Assistant.",
+        "data": {
+          "address": "Printer (list or address)",
+          "label_width_mm": "Label length",
+          "label_height_mm": "Label width",
+          "margin_x_mm": "Margin at the ends",
+          "margin_y_mm": "Margin at the sides"
+        },
+        "data_description": {
+          "label_width_mm": "The long side of the label, in the direction the paper comes out of the printer. E.g. 28.",
+          "label_height_mm": "The short side of the label, across the paper. E.g. 12.",
+          "margin_x_mm": "Empty space at both ends of the label. Increase it if text is cut off at the ends.",
+          "margin_y_mm": "Empty space along the two long edges. Increase it if text is cut off at the sides.",
+          "address": "If the list is full of other devices, just type the printer's address."
+        }
+      },
+      "confirm": {
+        "title": "Phomemo Q30",
+        "description": "Set up {name}?",
+        "data": {
+          "label_width_mm": "Label length",
+          "label_height_mm": "Label width",
+          "margin_x_mm": "Margin at the ends",
+          "margin_y_mm": "Margin at the sides"
+        },
+        "data_description": {
+          "label_width_mm": "The long side of the label, in the direction the paper comes out of the printer. E.g. 28.",
+          "label_height_mm": "The short side of the label, across the paper. E.g. 12.",
+          "margin_x_mm": "Empty space at both ends of the label. Increase it if text is cut off at the ends.",
+          "margin_y_mm": "Empty space along the two long edges. Increase it if text is cut off at the sides."
+        }
+      }
+    },
+    "abort": {
+      "no_devices_found": "No Phomemo printer found via Bluetooth.",
+      "already_configured": "Already configured."
+    },
+    "error": {
+      "invalid_address": "Invalid Bluetooth address. Format: AA:BB:CC:DD:EE:FF"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Label size",
+        "data": {
+          "label_width_mm": "Label length",
+          "label_height_mm": "Label width",
+          "margin_x_mm": "Margin at the ends",
+          "margin_y_mm": "Margin at the sides"
+        },
+        "data_description": {
+          "label_width_mm": "The long side of the label, in the direction the paper comes out of the printer. E.g. 28.",
+          "label_height_mm": "The short side of the label, across the paper. E.g. 12.",
+          "margin_x_mm": "Empty space at both ends of the label. Increase it if text is cut off at the ends.",
+          "margin_y_mm": "Empty space along the two long edges. Increase it if text is cut off at the sides."
+        },
+        "description": "Enter the label size in millimetres. Any size works, also for custom labels."
+      }
+    }
+  },
+  "services": {
+    "print_text": {
+      "name": "Print text",
+      "description": "Print text on a label.",
+      "fields": {
+        "text": {
+          "name": "Text",
+          "description": "Multiple lines allowed."
+        },
+        "device_id": {
+          "name": "Printer",
+          "description": "Optional if only one printer."
+        },
+        "font_size": {
+          "name": "Font size",
+          "description": "0 = auto fit"
+        },
+        "font": {
+          "name": "Font file",
+          "description": "Path to a TTF file (optional)"
+        },
+        "copies": {
+          "name": "Copies",
+          "description": "Number of labels"
+        },
+        "length_mm": {
+          "name": "Label length (one-off)",
+          "description": "Overrides the configured length for this print only."
+        },
+        "width_mm": {
+          "name": "Label width (one-off)",
+          "description": "Overrides the configured width for this print only."
+        }
+      }
+    },
+    "print_image": {
+      "name": "Print image",
+      "description": "Print an image on a label.",
+      "fields": {
+        "path": {
+          "name": "File",
+          "description": "Image path (e.g. /config/www/label.png)"
+        },
+        "device_id": {
+          "name": "Printer",
+          "description": "Optional if only one printer."
+        },
+        "rotate": {
+          "name": "Rotate",
+          "description": "Degrees clockwise"
+        },
+        "dither": {
+          "name": "Dither",
+          "description": "Enable for photos"
+        },
+        "copies": {
+          "name": "Copies",
+          "description": "Number of labels"
+        },
+        "length_mm": {
+          "name": "Label length (one-off)",
+          "description": "Overrides the configured length for this print only."
+        },
+        "width_mm": {
+          "name": "Label width (one-off)",
+          "description": "Overrides the configured width for this print only."
+        }
+      }
+    }
+  },
+  "entity": {
+    "text": {
+      "label_text": {
+        "name": "Label text"
+      }
+    },
+    "button": {
+      "print_label": {
+        "name": "Print label"
+      }
+    }
+  }
+}

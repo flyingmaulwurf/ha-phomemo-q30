@@ -1,0 +1,150 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Phomemo Q30",
+        "description": "Válaszd ki a nyomtatót a listából, vagy írd be a Bluetooth címét (pl. AA:BB:CC:DD:EE:FF). Kapcsold be a nyomtatót, és tartsd a Home Assistant közelében.",
+        "data": {
+          "address": "Nyomtató (lista vagy MAC-cím)",
+          "label_width_mm": "Címke hossza",
+          "label_height_mm": "Címke szélessége",
+          "margin_x_mm": "Margó a végeken",
+          "margin_y_mm": "Margó az oldalakon"
+        },
+        "data_description": {
+          "label_width_mm": "A címke hosszú oldala, a papír haladási irányában (ahogy kijön a nyomtatóból). Pl. 28.",
+          "label_height_mm": "A címke rövid oldala, a papírra merőlegesen. Pl. 12.",
+          "margin_x_mm": "Üres hely a címke két végén. Növeld, ha a szöveg a végeken levágódik.",
+          "margin_y_mm": "Üres hely a címke két hosszú szélén. Növeld, ha a szöveg a szélén levágódik.",
+          "address": "Ha a lista tele van más eszközökkel, egyszerűen írd be a nyomtató MAC-címét."
+        }
+      },
+      "confirm": {
+        "title": "Phomemo Q30",
+        "description": "{name} beállítása?",
+        "data": {
+          "label_width_mm": "Címke hossza",
+          "label_height_mm": "Címke szélessége",
+          "margin_x_mm": "Margó a végeken",
+          "margin_y_mm": "Margó az oldalakon"
+        },
+        "data_description": {
+          "label_width_mm": "A címke hosszú oldala, a papír haladási irányában (ahogy kijön a nyomtatóból). Pl. 28.",
+          "label_height_mm": "A címke rövid oldala, a papírra merőlegesen. Pl. 12.",
+          "margin_x_mm": "Üres hely a címke két végén. Növeld, ha a szöveg a végeken levágódik.",
+          "margin_y_mm": "Üres hely a címke két hosszú szélén. Növeld, ha a szöveg a szélén levágódik."
+        }
+      }
+    },
+    "abort": {
+      "no_devices_found": "Nem található Phomemo nyomtató Bluetoothon.",
+      "already_configured": "Már be van állítva."
+    },
+    "error": {
+      "invalid_address": "Érvénytelen Bluetooth cím. Formátum: AA:BB:CC:DD:EE:FF"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Címke méret",
+        "data": {
+          "label_width_mm": "Címke hossza",
+          "label_height_mm": "Címke szélessége",
+          "margin_x_mm": "Margó a végeken",
+          "margin_y_mm": "Margó az oldalakon"
+        },
+        "data_description": {
+          "label_width_mm": "A címke hosszú oldala, a papír haladási irányában (ahogy kijön a nyomtatóból). Pl. 28.",
+          "label_height_mm": "A címke rövid oldala, a papírra merőlegesen. Pl. 12.",
+          "margin_x_mm": "Üres hely a címke két végén. Növeld, ha a szöveg a végeken levágódik.",
+          "margin_y_mm": "Üres hely a címke két hosszú szélén. Növeld, ha a szöveg a szélén levágódik."
+        },
+        "description": "Add meg a címke méretét milliméterben. Egyedi címkéhez is bármilyen méret beírható."
+      }
+    }
+  },
+  "services": {
+    "print_text": {
+      "name": "Szöveg nyomtatása",
+      "description": "Szöveget nyomtat címkére.",
+      "fields": {
+        "text": {
+          "name": "Szöveg",
+          "description": "Több sor: új sor karakterrel."
+        },
+        "device_id": {
+          "name": "Nyomtató",
+          "description": "Elhagyható, ha csak egy nyomtató van."
+        },
+        "font_size": {
+          "name": "Betűméret",
+          "description": "0 = automatikus"
+        },
+        "font": {
+          "name": "Betűtípus fájl",
+          "description": "TTF fájl elérési útja (opcionális)"
+        },
+        "copies": {
+          "name": "Példányszám",
+          "description": "Hány címke készüljön"
+        },
+        "length_mm": {
+          "name": "Címke hossza (egyszeri)",
+          "description": "Csak erre a nyomtatásra felülírja a beállított hosszt."
+        },
+        "width_mm": {
+          "name": "Címke szélessége (egyszeri)",
+          "description": "Csak erre a nyomtatásra felülírja a beállított szélességet."
+        }
+      }
+    },
+    "print_image": {
+      "name": "Kép nyomtatása",
+      "description": "Képet nyomtat címkére.",
+      "fields": {
+        "path": {
+          "name": "Fájl",
+          "description": "Kép elérési útja (pl. /config/www/label.png)"
+        },
+        "device_id": {
+          "name": "Nyomtató",
+          "description": "Elhagyható, ha csak egy nyomtató van."
+        },
+        "rotate": {
+          "name": "Forgatás",
+          "description": "Fokban"
+        },
+        "dither": {
+          "name": "Raszterezés",
+          "description": "Fotókhoz bekapcsolva"
+        },
+        "copies": {
+          "name": "Példányszám",
+          "description": "Hány címke készüljön"
+        },
+        "length_mm": {
+          "name": "Címke hossza (egyszeri)",
+          "description": "Csak erre a nyomtatásra felülírja a beállított hosszt."
+        },
+        "width_mm": {
+          "name": "Címke szélessége (egyszeri)",
+          "description": "Csak erre a nyomtatásra felülírja a beállított szélességet."
+        }
+      }
+    }
+  },
+  "entity": {
+    "text": {
+      "label_text": {
+        "name": "Címke szövege"
+      }
+    },
+    "button": {
+      "print_label": {
+        "name": "Címke nyomtatása"
+      }
+    }
+  }
+}

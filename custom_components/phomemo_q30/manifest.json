@@ -1,0 +1,28 @@
+{
+  "domain": "phomemo_q30",
+  "name": "Phomemo Q30 label printer",
+  "codeowners": [
+    "@YOUR_GITHUB_USERNAME"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth"
+  ],
+  "documentation": "https://github.com/YOUR_GITHUB_USERNAME/ha-phomemo-q30",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/YOUR_GITHUB_USERNAME/ha-phomemo-q30/issues",
+  "bluetooth": [
+    {
+      "local_name": "Q30*",
+      "connectable": true
+    },
+    {
+      "local_name": "D30*",
+      "connectable": true
+    }
+  ],
+  "requirements": [
+    "Pillow"
+  ],
+  "version": "0.4.1"
+}
