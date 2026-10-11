@@ -2,7 +2,7 @@
   "domain": "phomemo_q30",
   "name": "Phomemo Q30 label printer",
   "codeowners": [
-    "flyingmaulwurf"
+    "@flyingmaulwurf"
   ],
   "config_flow": true,
   "dependencies": [

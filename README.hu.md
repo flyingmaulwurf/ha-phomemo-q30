@@ -26,6 +26,7 @@ nyomtatóra, Bluetooth LE-n.
 ## Telepítés
 
 ### HACS (egyedi tároló)
+
 1. HACS → három pont → **Custom repositories**.
 2. Add hozzá: `https://github.com/flyingmaulwurf/ha-phomemo-q30`, kategória: **Integration**.
 3. Töltsd le a **Phomemo Q30 label printer** integrációt, majd indítsd újra a Home Assistantot.
