@@ -46,6 +46,8 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [Platform.TEXT, Platform.BUTTON]
 
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
+
 type PhomemoConfigEntry = ConfigEntry[PhomemoPrinter]
 
 _COMMON = {
