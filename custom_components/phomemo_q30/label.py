@@ -4,12 +4,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import io
+from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 DOTS_PER_MM = 8  # 203 dpi
 
+# Bundled so accented letters (á, ő, ű, ...) work on Home Assistant OS, which ships
+# no system fonts; Pillow's built-in fallback font has no glyphs for them.
+BUNDLED_FONT = str(Path(__file__).parent / "fonts" / "DejaVuSans-Bold.ttf")
+
 FONT_CANDIDATES = [
+    BUNDLED_FONT,
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf",
     "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
